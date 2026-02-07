@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>کار عالی (Caraali) - مرکز تخصصی مراقبت از خودرو</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         /* Reset و فونت‌ها */
         * {
@@ -15,26 +15,25 @@
         }
         
         :root {
-            --primary-black: #000000;
-            --primary-red: #FF0000;
-            --dark-red: #CC0000;
-            --light-red: #FF3333;
-            --blood-red: #8B0000;
-            --carbon: #1A1A1A;
-            --steel: #2D2D2D;
-            --smoke: #404040;
-            --light: #F5F5F5;
-            --gold-accent: #FFD700;
-            --neon-red: #FF073A;
-            --glow: 0 0 15px var(--primary-red);
+            --primary-red: #D32F2F;
+            --dark-red: #B71C1C;
+            --light-red: #FF5252;
+            --gray-dark: #212121;
+            --gray-medium: #424242;
+            --gray-light: #757575;
+            --gray-bg: #FAFAFA;
+            --gray-border: #E0E0E0;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         body {
-            font-family: 'Vazirmatn', sans-serif;
-            background-color: var(--primary-black);
-            color: var(--light);
+            font-family: 'Vazirmatn', 'Roboto', sans-serif;
+            background-color: var(--gray-bg);
+            color: var(--gray-dark);
+            line-height: 1.8;
             overflow-x: hidden;
-            line-height: 1.6;
         }
         
         .container {
@@ -44,619 +43,639 @@
             padding: 0 20px;
         }
         
-        /* هدر متحرک و شیشه‌ای */
+        /* هدر */
         header {
+            background: var(--white);
+            box-shadow: var(--shadow);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(15px);
-            border-bottom: 3px solid var(--primary-red);
-            box-shadow: 0 5px 30px rgba(255, 0, 0, 0.3);
-            animation: headerSlideDown 1s ease;
-        }
-        
-        @keyframes headerSlideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        /* نوار بالای هدر - متحرک */
-        .top-bar {
-            background: linear-gradient(90deg, var(--primary-red), var(--dark-red), var(--blood-red));
-            height: 5px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .top-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            border-bottom: 4px solid var(--primary-red);
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 20px 0;
         }
         
-        /* لوگوی متحرک */
         .logo {
             display: flex;
             align-items: center;
             gap: 15px;
-            position: relative;
         }
         
         .logo-icon {
-            color: var(--primary-red);
-            font-size: 2.8rem;
-            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .logo-text {
+            background: var(--primary-red);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
         }
         
         .logo-text h1 {
-            font-family: 'Black Ops One', cursive;
-            font-size: 2.5rem;
-            background: linear-gradient(to right, var(--primary-red), var(--gold-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-            letter-spacing: 2px;
+            font-size: 1.8rem;
+            color: var(--gray-dark);
+            margin-bottom: 5px;
         }
         
         .logo-text span {
-            font-size: 0.9rem;
-            color: var(--smoke);
-            font-weight: 300;
+            color: var(--primary-red);
+            font-weight: 700;
         }
         
-        /* نویگیشن */
+        .logo-text p {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 30px;
         }
         
         nav a {
-            color: var(--light);
+            color: var(--gray-medium);
             text-decoration: none;
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1rem;
             padding: 8px 15px;
             border-radius: 5px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             position: relative;
-            overflow: hidden;
         }
         
-        nav a::before {
+        nav a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: -5px;
+            right: 0;
             width: 0;
             height: 2px;
             background: var(--primary-red);
-            transition: width 0.3s ease;
+            transition: var(--transition);
         }
         
-        nav a:hover::before {
+        nav a:hover::after,
+        nav a.active::after {
             width: 100%;
         }
         
-        nav a:hover {
+        nav a:hover,
+        nav a.active {
             color: var(--primary-red);
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
         }
         
-        /* دکمه هدر */
-        .header-actions {
+        .header-contact {
             display: flex;
-            gap: 15px;
             align-items: center;
+            gap: 20px;
         }
         
-        .phone-badge {
-            background: linear-gradient(45deg, var(--primary-red), var(--dark-red));
+        .phone-number {
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
             color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: bold;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 10px;
-            animation: shake 3s infinite;
-            box-shadow: var(--glow);
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
         }
         
-        @keyframes shake {
-            0%, 90%, 100% { transform: rotate(0); }
-            92%, 96%, 98% { transform: rotate(-1deg); }
-            94%, 97% { transform: rotate(1deg); }
-        }
-        
-        .phone-badge i {
-            animation: ring 2s infinite;
-        }
-        
-        @keyframes ring {
-            0%, 100% { transform: rotate(0); }
-            10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); }
-            20%, 40%, 60%, 80% { transform: rotate(10deg); }
-        }
-        
-        /* منوی موبایل */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: 2px solid var(--primary-red);
             color: var(--primary-red);
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            font-size: 1.5rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            font-size: 1.3rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .mobile-menu-btn:hover {
             background: var(--primary-red);
-            color: black;
-            box-shadow: var(--glow);
+            color: white;
         }
         
         /* بخش هیرو */
         .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            margin-top: 80px;
-        }
-        
-        /* پس‌زمینه پارالکس */
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="black"/><path d="M0,50 Q25,25 50,50 T100,50" stroke="rgba(255,0,0,0.05)" fill="none" stroke-width="0.5"/></svg>');
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
-            animation: bgMove 20s infinite linear;
-        }
-        
-        @keyframes bgMove {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            background-position: center;
+            color: white;
+            padding: 180px 0 120px;
+            margin-top: 80px;
+            text-align: center;
         }
         
         .hero-content {
-            position: relative;
-            z-index: 2;
             max-width: 800px;
-            animation: fadeInUp 1.5s ease;
+            margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+            font-weight: 700;
         }
         
         .hero h1 span {
-            background: linear-gradient(45deg, var(--primary-red), var(--gold-accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            animation: textGlow 2s infinite alternate;
+            color: var(--light-red);
+            position: relative;
         }
         
-        @keyframes textGlow {
-            from { text-shadow: 0 0 20px rgba(255, 0, 0, 0.5); }
-            to { text-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.6); }
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--light-red);
+            opacity: 0.5;
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 40px;
-            color: var(--smoke);
+            color: rgba(255, 255, 255, 0.9);
             max-width: 600px;
+            margin: 0 auto 40px;
         }
         
-        /* دکمه‌های هیرو */
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
+        /* دکمه‌ها */
         .btn {
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            padding: 16px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
         }
         
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
         .btn-primary {
-            background: linear-gradient(45deg, var(--primary-red), var(--dark-red));
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
             color: white;
-            box-shadow: var(--glow);
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.3);
         }
         
         .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(211, 47, 47, 0.4);
         }
         
         .btn-secondary {
             background: transparent;
-            color: var(--light);
-            border: 2px solid var(--primary-red);
+            color: white;
+            border: 2px solid white;
         }
         
         .btn-secondary:hover {
-            background: var(--primary-red);
-            transform: translateY(-5px);
-            box-shadow: var(--glow);
-        }
-        
-        /* انیمیشن ماشین */
-        .car-animation {
-            position: absolute;
-            bottom: 20%;
-            left: -200px;
-            font-size: 4rem;
+            background: white;
             color: var(--primary-red);
-            opacity: 0.3;
-            animation: carDrive 15s linear infinite;
-            z-index: 1;
         }
         
-        @keyframes carDrive {
-            0% { left: -200px; transform: rotateY(0); }
-            49% { left: calc(100% + 200px); transform: rotateY(0); }
-            50% { left: calc(100% + 200px); transform: rotateY(180deg); }
-            99% { left: -200px; transform: rotateY(180deg); }
-            100% { left: -200px; transform: rotateY(0); }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* بخش توضیحات خدمات */
+        .services-explanation {
+            padding: 120px 0;
+            background: var(--white);
+        }
+        
+        .explanation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .explanation-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--gray-border);
+        }
+        
+        .explanation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-red);
+        }
+        
+        .explanation-icon {
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .explanation-content {
+            padding: 30px;
+        }
+        
+        .explanation-content h3 {
+            font-size: 1.5rem;
+            color: var(--gray-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .explanation-content h3 i {
+            color: var(--primary-red);
+        }
+        
+        .explanation-content p {
+            color: var(--gray-medium);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .explanation-features {
+            margin: 25px 0;
+        }
+        
+        .explanation-features li {
+            list-style: none;
+            padding: 8px 0;
+            color: var(--gray-medium);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .explanation-features i {
+            color: var(--primary-red);
+            font-size: 0.9rem;
+        }
+        
+        .explanation-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid var(--gray-border);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-light);
+            margin-top: 5px;
         }
         
         /* خدمات */
         .services {
-            padding: 150px 0;
-            position: relative;
+            padding: 120px 0;
+            background: var(--gray-bg);
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: var(--gray-dark);
+            margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            padding-bottom: 15px;
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: 0;
             right: 50%;
             transform: translateX(50%);
-            width: 150px;
-            height: 5px;
-            background: linear-gradient(90deg, transparent, var(--primary-red), transparent);
-            border-radius: 5px;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--dark-red));
+            border-radius: 2px;
         }
         
         .section-title p {
-            color: var(--smoke);
+            color: var(--gray-light);
             max-width: 700px;
             margin: 0 auto;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
-        /* کارت‌های خدمات با افکت 3D */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            perspective: 1000px;
         }
         
         .service-card {
-            background: linear-gradient(145deg, var(--carbon), var(--primary-black));
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 0, 0, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.5s ease;
-            position: relative;
+            background: var(--white);
+            border-radius: 15px;
             overflow: hidden;
-            transform-style: preserve-3d;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-red), var(--dark-red));
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-        }
-        
-        .service-card:hover::before {
-            transform: translateX(0);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
         
         .service-card:hover {
-            transform: translateY(-20px) rotateX(5deg);
-            border-color: var(--primary-red);
-            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
         
-        .service-icon {
-            font-size: 3.5rem;
-            color: var(--primary-red);
-            margin-bottom: 25px;
-            display: inline-block;
-            transition: all 0.3s ease;
+        .service-image {
+            height: 200px;
+            overflow: hidden;
         }
         
-        .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(360deg);
-            filter: drop-shadow(0 0 15px var(--primary-red));
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
         }
         
-        .service-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--light);
-        }
-        
-        .service-card p {
-            color: var(--smoke);
-            margin-bottom: 25px;
-            line-height: 1.8;
-        }
-        
-        /* سوئیچ حالت‌ها */
-        .mode-switcher {
-            position: fixed;
-            top: 150px;
-            left: 20px;
-            z-index: 1000;
-            background: var(--carbon);
-            border-radius: 50px;
-            padding: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            border: 2px solid var(--primary-red);
-        }
-        
-        .mode-btn {
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            margin: 5px 0;
-        }
-        
-        .mode-btn:hover {
-            background: var(--primary-red);
-            transform: rotate(180deg);
-        }
-        
-        /* چت بات */
-        .chat-bot {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 1000;
-        }
-        
-        .chat-btn {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary-red), var(--dark-red));
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            box-shadow: var(--glow);
-            animation: bounce 2s infinite;
-            transition: all 0.3s ease;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .chat-btn:hover {
+        .service-card:hover .service-image img {
             transform: scale(1.1);
-            box-shadow: 0 0 25px var(--primary-red);
         }
         
-        /* پیشرفت اسکرول */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--carbon);
-            z-index: 1001;
+        .service-content {
+            padding: 25px;
         }
         
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-red), var(--gold-accent));
-            width: 0%;
-            transition: width 0.3s ease;
+        .service-content h3 {
+            font-size: 1.4rem;
+            color: var(--gray-dark);
+            margin-bottom: 15px;
         }
         
-        /* افکت ذرات */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
+        .service-content p {
+            color: var(--gray-medium);
+            margin-bottom: 20px;
+            line-height: 1.7;
         }
         
-        .particle {
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-border);
+        }
+        
+        .service-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-light);
+            font-size: 0.9rem;
+        }
+        
+        .service-meta i {
+            color: var(--primary-red);
+        }
+        
+        /* فرآیند کار */
+        .process {
+            padding: 120px 0;
+            background: var(--white);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
             position: absolute;
-            background: var(--primary-red);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float linear infinite;
+            top: 40px;
+            right: 0;
+            left: 0;
+            height: 2px;
+            background: var(--gray-border);
+            z-index: 1;
         }
         
-        @keyframes float {
-            to { transform: translateY(-1000px) rotate(360deg); }
+        .process-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border: 3px solid var(--primary-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin: 0 auto 25px;
+            transition: var(--transition);
+        }
+        
+        .process-step:hover .step-number {
+            background: var(--primary-red);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .step-content {
+            padding: 0 15px;
+        }
+        
+        .step-content h4 {
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+            margin-bottom: 10px;
+        }
+        
+        .step-content p {
+            color: var(--gray-medium);
+            font-size: 0.95rem;
         }
         
         /* آمار */
         .stats {
             padding: 100px 0;
-            background: linear-gradient(45deg, rgba(255, 0, 0, 0.1), transparent);
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+            color: white;
         }
         
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
+        }
+        
+        .stat-item-large {
             text-align: center;
+            padding: 30px;
         }
         
-        .stat-item {
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-red);
-            box-shadow: var(--glow);
-        }
-        
-        .stat-number {
+        .stat-number-large {
             font-size: 3.5rem;
-            font-weight: bold;
-            color: var(--primary-red);
-            margin-bottom: 15px;
-            font-family: 'Black Ops One', cursive;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
         }
         
-        .stat-text {
-            color: var(--light);
-            font-size: 1.1rem;
+        .stat-text-large {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* تماس */
+        .contact {
+            padding: 120px 0;
+            background: var(--gray-bg);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-info h3 {
+            color: var(--gray-dark);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary-red);
+        }
+        
+        .contact-details li {
+            list-style: none;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-details i {
+            color: var(--primary-red);
+            width: 30px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gray-dark);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--gray-border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
         }
         
         /* فوتر */
         footer {
-            background: var(--carbon);
+            background: var(--gray-dark);
+            color: white;
             padding: 80px 0 30px;
-            border-top: 3px solid var(--primary-red);
-            position: relative;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
+            gap: 40px;
             margin-bottom: 50px;
         }
         
         .footer-column h3 {
-            color: var(--primary-red);
+            color: white;
             margin-bottom: 25px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
         
         .footer-column h3::after {
@@ -669,6 +688,22 @@
             background: var(--primary-red);
         }
         
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-red);
+            padding-right: 10px;
+        }
+        
         .social-links {
             display: flex;
             gap: 15px;
@@ -679,43 +714,32 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: var(--steel);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: var(--light);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
             background: var(--primary-red);
-            transform: translateY(-5px);
-            box-shadow: var(--glow);
+            transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid var(--steel);
-            color: var(--smoke);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
         
         /* ریسپانسیو */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            nav ul {
-                gap: 20px;
-            }
-        }
-        
         @media (max-width: 992px) {
             .header-content {
-                padding: 15px;
+                padding: 15px 0;
             }
             
             nav {
@@ -732,11 +756,11 @@
                 right: -100%;
                 width: 100%;
                 height: calc(100vh - 80px);
-                background: rgba(0, 0, 0, 0.95);
-                backdrop-filter: blur(20px);
-                transition: right 0.4s ease;
+                background: var(--white);
+                transition: var(--transition);
                 z-index: 999;
                 padding: 40px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
             
             .mobile-menu.active {
@@ -745,202 +769,147 @@
             
             .mobile-menu ul {
                 flex-direction: column;
-                gap: 25px;
+                gap: 20px;
             }
             
             .mobile-menu a {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
                 padding: 15px;
                 display: block;
-                border-left: 3px solid transparent;
-                transition: all 0.3s ease;
+                border-right: 3px solid transparent;
+                transition: var(--transition);
             }
             
             .mobile-menu a:hover {
-                border-left-color: var(--primary-red);
-                padding-right: 25px;
+                border-right-color: var(--primary-red);
+                background: rgba(211, 47, 47, 0.05);
             }
             
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
-            .hero-buttons {
+            .process-steps {
                 flex-direction: column;
-                align-items: flex-start;
+                gap: 40px;
             }
             
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .mode-switcher {
-                top: 100px;
-                left: 10px;
-                padding: 10px;
+            .process-steps::before {
+                display: none;
             }
         }
         
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
             }
             
             .section-title h2 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
-            .service-card {
-                padding: 30px 20px;
+            .header-contact {
+                flex-direction: column;
+                gap: 10px;
             }
             
-            .stat-number {
-                font-size: 2.5rem;
+            .phone-number {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
         
-        /* افکت تایپوگرافی */
-        .typing-text {
-            border-right: 3px solid var(--primary-red);
-            animation: blink 0.7s infinite;
-            white-space: nowrap;
-            overflow: hidden;
+        /* انیمیشن‌ها */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        @keyframes blink {
-            0%, 100% { border-color: transparent; }
-            50% { border-color: var(--primary-red); }
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
         }
         
-        /* افکت شکست نور */
-        .light-break {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
-            animation: lightSweep 3s infinite;
-            top: 0;
-            right: -100%;
-        }
-        
-        @keyframes lightSweep {
-            0% { right: -100%; }
-            100% { right: 100%; }
-        }
-        
-        /* تم شب */
-        .night-mode {
-            background: #0a0a1a;
-        }
-        
-        .night-mode .service-card {
-            background: linear-gradient(145deg, #0a0a1a, #000016);
-            border-color: rgba(0, 100, 255, 0.2);
-        }
-        
-        .night-mode .btn-primary {
-            background: linear-gradient(45deg, #0066ff, #0033cc);
-        }
-        
-        /* اعلان */
-        .notification {
+        /* دکمه بازگشت به بالا */
+        .back-to-top {
             position: fixed;
-            top: 100px;
-            right: 20px;
-            background: var(--carbon);
-            border-right: 5px solid var(--primary-red);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: var(--glow);
-            transform: translateX(150%);
-            transition: transform 0.5s ease;
-            z-index: 10000;
-            max-width: 300px;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        /* لودر */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-black);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-        
-        .loader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .loader-spinner {
-            width: 80px;
-            height: 80px;
-            border: 5px solid var(--carbon);
-            border-top: 5px solid var(--primary-red);
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-red);
+            color: white;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
         }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--dark-red);
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
-    <!-- لودر -->
-    <div class="loader" id="loader">
-        <div class="loader-spinner"></div>
-    </div>
-    
-    <!-- نوار پیشرفت اسکرول -->
-    <div class="scroll-progress">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-    
-    <!-- ذرات متحرک -->
-    <div class="particles" id="particles"></div>
+    <!-- دکمه بازگشت به بالا -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
     
     <!-- هدر -->
     <header>
-        <div class="top-bar"></div>
         <div class="container header-content">
             <div class="logo">
-                <i class="fas fa-car-crash logo-icon"></i>
+                <div class="logo-icon">
+                    <i class="fas fa-car"></i>
+                </div>
                 <div class="logo-text">
-                    <h1>CARAALI</h1>
-                    <span>مرکز تخصصی مراقبت از خودرو</span>
+                    <h1>کار <span>عالی</span></h1>
+                    <p>مرکز تخصصی مراقبت از خودرو</p>
                 </div>
             </div>
             
             <nav>
                 <ul>
                     <li><a href="#home" class="active">خانه</a></li>
+                    <li><a href="#explanation">توضیحات خدمات</a></li>
                     <li><a href="#services">خدمات</a></li>
-                    <li><a href="#gallery">گالری</a></li>
-                    <li><a href="#stats">آمار</a></li>
+                    <li><a href="#process">فرآیند کار</a></li>
                     <li><a href="#contact">تماس</a></li>
                 </ul>
             </nav>
             
-            <div class="header-actions">
-                <div class="phone-badge">
+            <div class="header-contact">
+                <div class="phone-number">
                     <i class="fas fa-phone-alt"></i>
                     <span>۰۲۱-۱۲۳۴۵۶۷۸</span>
                 </div>
@@ -955,57 +924,174 @@
     <div class="mobile-menu" id="mobileMenu">
         <ul>
             <li><a href="#home">خانه</a></li>
+            <li><a href="#explanation">توضیحات خدمات</a></li>
             <li><a href="#services">خدمات</a></li>
-            <li><a href="#gallery">گالری</a></li>
-            <li><a href="#stats">آمار</a></li>
+            <li><a href="#process">فرآیند کار</a></li>
             <li><a href="#contact">تماس</a></li>
         </ul>
     </div>
     
-    <!-- سوئیچ حالت‌ها -->
-    <div class="mode-switcher">
-        <button class="mode-btn" id="nightMode" title="حالت شب">
-            <i class="fas fa-moon"></i>
-        </button>
-        <button class="mode-btn" id="matrixMode" title="حالت ماتریکس">
-            <i class="fas fa-code"></i>
-        </button>
-        <button class="mode-btn" id="rgbMode" title="حالت RGB">
-            <i class="fas fa-palette"></i>
-        </button>
-    </div>
-    
-    <!-- چت بات -->
-    <div class="chat-bot">
-        <button class="chat-btn" id="chatBtn">
-            <i class="fas fa-robot"></i>
-        </button>
-    </div>
-    
-    <!-- اعلان -->
-    <div class="notification" id="notification">
-        <p>خوش آمدید! برای مشاوره رایگان کلیک کنید.</p>
-    </div>
-    
-    <!-- بخش هیرو -->
+    <!-- هیرو -->
     <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="car-animation">
-            <i class="fas fa-car"></i>
+        <div class="container hero-content">
+            <h1 class="fade-in">مراقبت <span>حرفه‌ای</span> از خودرو با کیفیت <span>بینظیر</span></h1>
+            <p class="fade-in">با بیش از ۱۰ سال تجربه در ارائه خدمات تخصصی لیسه‌گیری، ریکاوری رنگ، کاور سرامیک و محافظ فیلم شفاف برای خودروهای لوکس و معمولی</p>
+            <div class="hero-buttons fade-in">
+                <a href="#explanation" class="btn btn-primary">
+                    <i class="fas fa-info-circle"></i>
+                    توضیحات خدمات
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-calendar-check"></i>
+                    رزرو نوبت
+                </a>
+            </div>
         </div>
+    </section>
+    
+    <!-- بخش توضیحات خدمات -->
+    <section class="services-explanation" id="explanation">
         <div class="container">
-            <div class="hero-content">
-                <h1>تعمیرات <span>حرفه‌ای</span> خودرو با کیفیت <span>بی‌نظیر</span></h1>
-                <p class="typing-text" id="typingText">ما بهترین خدمات لیسه‌گیری، ریکاوری رنگ، کاور سرامیک و PPF را ارائه می‌دهیم...</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">
-                        <i class="fas fa-play-circle"></i>
-                        مشاهده خدمات
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-calendar-check"></i>
-                        رزرو نوبت
-                    </a>
+            <div class="section-title">
+                <h2>توضیحات کامل خدمات</h2>
+                <p>در این بخش به طور مفصل با خدمات تخصصی ما آشنا شوید</p>
+            </div>
+            
+            <div class="explanation-grid">
+                <div class="explanation-card fade-in">
+                    <div class="explanation-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <div class="explanation-content">
+                        <h3><i class="fas fa-paint-roller"></i> لیسه‌گیری حرفه‌ای (Paint Correction)</h3>
+                        <p>لیسه‌گیری فرآیندی تخصصی است که با استفاده از دستگاه‌های پولیش صنعتی و مواد تخصصی، خط و خش‌های سطحی، سوئیـل، آثار پرنده و آلودگی‌های شیمیایی را از روی بدنه خودرو کاملاً برطرف می‌کند.</p>
+                        
+                        <div class="explanation-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> پولیش سه مرحله‌ای (Cutting, Polishing, Finishing)</li>
+                                <li><i class="fas fa-check"></i> استفاده از پدهای حرفه‌ای و مواد درجه یک</li>
+                                <li><i class="fas fa-check"></i> بازگرداندن ۹۵٪ براقیت اولیه خودرو</li>
+                                <li><i class="fas fa-check"></i> حذف کامل آثار UV و اکسیداسیون</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="explanation-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">۱-۲ روز</span>
+                                <span class="stat-label">مدت زمان</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">۱۸ ماه</span>
+                                <span class="stat-label">گارانتی</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">۱۰۰٪</span>
+                                <span class="stat-label">رضایت</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="explanation-card fade-in">
+                    <div class="explanation-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <div class="explanation-content">
+                        <h3><i class="fas fa-redo"></i> ریکاوری رنگ (Paint Restoration)</h3>
+                        <p>ریکاوری رنگ مخصوص خودروهای قدیمی و فرسوده است که رنگ اصلی خود را از دست داده‌اند. این فرآیند شامل احیای کامل رنگ، برگرداندن شفافیت و درخشندگی اولیه می‌شود.</p>
+                        
+                        <div class="explanation-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> احیای رنگ‌های مات و فرسوده</li>
+                                <li><i class="fas fa-check"></i> ترمیم آثار نور خورشید و UV</li>
+                                <li><i class="fas fa-check"></i> حذف اکسیداسیون سطحی</li>
+                                <li><i class="fas fa-check"></i> محافظت در برابر عوامل محیطی</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="explanation-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">۲-۳ روز</span>
+                                <span class="stat-label">مدت زمان</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">۲۴ ماه</span>
+                                <span class="stat-label">گارانتی</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">۹۵٪</span>
+                                <span class="stat-label">بازگشت شفافیت</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="explanation-card fade-in">
+                    <div class="explanation-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="explanation-content">
+                        <h3><i class="fas fa-shield-alt"></i> کاور سرامیک (Ceramic Coating)</h3>
+                        <p>کاور سرامیک یک لایه نانویی محافظ است که روی رنگ خودرو اعمال می‌شود. این لایه به مدت ۳-۵ سال از خودرو در برابر خط و خش، مواد شیمیایی، UV و آلودگی محافظت می‌کند.</p>
+                        
+                        <div class="explanation-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> ماندگاری ۳ تا ۵ سال</li>
+                                <li><i class="fas fa-check"></i> مقاومت در برابر خط و خش سطحی</li>
+                                <li><i class="fas fa-check"></i> دافع آب و آلودگی (Hydrophobic)</li>
+                                <li><i class="fas fa-check"></i> محافظت ۱۰۰٪ در برابر UV</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="explanation-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">۲ روز</span>
+                                <span class="stat-label">مدت زمان</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">۳۶ ماه</span>
+                                <span class="stat-label">گارانتی</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">۹۹٪</span>
+                                <span class="stat-label">دفع آب</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="explanation-card fade-in">
+                    <div class="explanation-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="explanation-content">
+                        <h3><i class="fas fa-shield-virus"></i> محافظ فیلم شفاف (PPF)</h3>
+                        <p>PPF یا Paint Protection Film یک لایه پلی‌اورتان شفاف است که مانند یک پوست دوم روی بدنه خودرو کشیده می‌شود. این فیلم در برابر سنگ ریزه، ضربات جاده‌ای و خط و خش مقاوم است.</p>
+                        
+                        <div class="explanation-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> محافظت فیزیکی کامل از جلوبندی</li>
+                                <li><i class="fas fa-check"></i> ترمیم خودکار خط و خش سطحی</li>
+                                <li><i class="fas fa-check"></i> ماندگاری ۷ تا ۱۰ سال</li>
+                                <li><i class="fas fa-check"></i> حفظ کامل شفافیت و زیبایی</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="explanation-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">۱-۲ روز</span>
+                                <span class="stat-label">مدت زمان</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">۶۰ ماه</span>
+                                <span class="stat-label">گارانتی</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">۱۰۰٪</span>
+                                <span class="stat-label">محافظت</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1015,44 +1101,94 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>خدمات تخصصی ما</h2>
-                <p>با استفاده از پیشرفته‌ترین تکنولوژی‌ها و مواد اولیه درجه یک</p>
+                <h2>خدمات ما</h2>
+                <p>با استفاده از بهترین مواد اولیه و تکنولوژی روز دنیا</p>
             </div>
             
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-spray-can"></i>
+                <div class="service-card fade-in">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1579226905180-636b76d96082?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="لیسه‌گیری">
                     </div>
-                    <h3>لیسه‌گیری حرفه‌ای</h3>
-                    <p>حذف کامل خط و خش و بازگرداندن شفافیت اولیه بدنه خودرو با پیشرفته‌ترین دستگاه‌های پولیش</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> پولیش سه مرحله‌ای</span>
-                        <span><i class="fas fa-check"></i> گارانتی ۱۸ ماهه</span>
-                    </div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-roller"></i>
-                    </div>
-                    <h3>ریکاوری رنگ</h3>
-                    <p>احیای رنگ خودروهای قدیمی و مات شده با تکنیک‌های مدرن و مواد تخصصی</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> احیای ۱۰۰٪ رنگ</span>
-                        <span><i class="fas fa-check"></i> مقاوم در برابر UV</span>
+                    <div class="service-content">
+                        <h3>لیسه‌گیری کامل</h3>
+                        <p>حذف کامل خط و خش، سوئیـل و آثار خوردگی از روی بدنه خودرو با دستگاه‌های پولیش صنعتی</p>
+                        <div class="service-meta">
+                            <span><i class="far fa-clock"></i> ۱-۲ روز</span>
+                            <span><i class="fas fa-shield-alt"></i> گارانتی ۱۸ ماه</span>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-gem"></i>
+                <div class="service-card fade-in">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1563720223484-21c6c2d3c487?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ریکاوری رنگ">
                     </div>
-                    <h3>کاور سرامیک</h3>
-                    <p>محافظت نانویی با ماندگاری بالا و دفع آب و آلودگی برای حفظ زیبایی خودرو</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> ماندگاری ۵ سال</span>
-                        <span><i class="fas fa-check"></i> دافع آب و گردوغبار</span>
+                    <div class="service-content">
+                        <h3>ریکاوری رنگ</h3>
+                        <p>احیای رنگ خودروهای قدیمی و بازگرداندن شفافیت و درخشندگی اولیه</p>
+                        <div class="service-meta">
+                            <span><i class="far fa-clock"></i> ۲-۳ روز</span>
+                            <span><i class="fas fa-shield-alt"></i> گارانتی ۲۴ ماه</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="کاور سرامیک">
+                    </div>
+                    <div class="service-content">
+                        <h3>کاور سرامیک</h3>
+                        <p>محافظت نانویی با ماندگاری بالا در برابر خط و خش و مواد شیمیایی</p>
+                        <div class="service-meta">
+                            <span><i class="far fa-clock"></i> ۲ روز</span>
+                            <span><i class="fas fa-shield-alt"></i> گارانتی ۳۶ ماه</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- فرآیند کار -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>فرآیند کار در کار عالی</h2>
+                <p>از ابتدا تا انتهای کار با ما همراه باشید</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">۱</div>
+                    <div class="step-content">
+                        <h4>مشاوره و بازدید</h4>
+                        <p>بازدید رایگان از خودرو و ارائه مشاوره تخصصی توسط کارشناسان ما</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">۲</div>
+                    <div class="step-content">
+                        <h4>تعیین پروژه</h4>
+                        <p>تعیین نوع خدمات مورد نیاز و ارائه طرح و برنامه کاری دقیق</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">۳</div>
+                    <div class="step-content">
+                        <h4>اجرای خدمات</h4>
+                        <p>انجام خدمات تخصصی توسط تکنسین‌های مجرب با بهترین مواد</p>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">۴</div>
+                    <div class="step-content">
+                        <h4>تحویل و گارانتی</h4>
+                        <p>تحویل خودرو با کیفیت عالی و ارائه گارانتی معتبر</p>
                     </div>
                 </div>
             </div>
@@ -1060,41 +1196,63 @@
     </section>
     
     <!-- آمار -->
-    <section class="stats" id="stats">
+    <section class="stats">
         <div class="container">
-            <div class="section-title">
-                <h2>آمار ما</h2>
-                <p>با افتخار به آمار و دستاوردهای خود می‌نازیم</p>
-            </div>
-            
             <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-count="1250">0</div>
-                    <div class="stat-text">خودرو سرویس شده</div>
+                <div class="stat-item-large fade-in">
+                    <span class="stat-number-large" data-count="1250">0</span>
+                    <span class="stat-text-large">خودرو سرویس شده</span>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-count="12">0</div>
-                    <div class="stat-text">سال تجربه</div>
+                <div class="stat-item-large fade-in">
+                    <span class="stat-number-large" data-count="10">0</span>
+                    <span class="stat-text-large">سال تجربه</span>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-count="99">0</div>
-                    <div class="stat-text">رضایت مشتری</div>
+                <div class="stat-item-large fade-in">
+                    <span class="stat-number-large" data-count="98">0</span>
+                    <span class="stat-text-large">رضایت مشتری</span>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-count="36">0</div>
-                    <div class="stat-text">ماه گارانتی</div>
+                <div class="stat-item-large fade-in">
+                    <span class="stat-number-large" data-count="36">0</span>
+                    <span class="stat-text-large">ماه گارانتی</span>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- فوتر -->
-    <footer id="contact">
+    <!-- تماس -->
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>درباره ما</h3>
-                    <p>مجموعه کار عالی با بیش از ۱۲ سال سابقه درخشان در زمینه خدمات تخصصی مراقبت از خودرو</p>
+            <div class="section-title">
+                <h2>تماس با ما</h2>
+                <p>برای مشاوره رایگان و رزرو نوبت با ما در تماس باشید</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>اطلاعات تماس</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>تهران، خیابان ولیعصر، پلاک ۱۲۳۴</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>۰۲۱-۱۲۳۴۵۶۷۸</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>۰۹۱۲-۱۲۳۴۵۶۷</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@caraali.ir</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>شنبه تا پنجشنبه ۹:۰۰ تا ۲۱:۰۰</span>
+                        </li>
+                    </ul>
+                    
                     <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-telegram"></i></a>
@@ -1103,31 +1261,87 @@
                     </div>
                 </div>
                 
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">نام و نام خانوادگی</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">شماره تماس</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="carModel">مدل خودرو</label>
+                            <input type="text" id="carModel" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">خدمت مورد نظر</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">انتخاب کنید</option>
+                                <option value="paint-correction">لیسه‌گیری</option>
+                                <option value="paint-restoration">ریکاوری رنگ</option>
+                                <option value="ceramic-coating">کاور سرامیک</option>
+                                <option value="ppf">محافظ فیلم شفاف (PPF)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">پیام شما (اختیاری)</label>
+                            <textarea id="message" class="form-control" placeholder="توضیحات اضافی..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            ارسال درخواست
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- فوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
                 <div class="footer-column">
-                    <h3>تماس با ما</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> اهواز</li>
-                        <li><i class="fas fa-phone"></i> 11111111</li>
-                        <li><i class="fas fa-envelope"></i> info@caraali.ir</li>
-                        <li><i class="fas fa-clock"></i> شنبه تا پنجشنبه ۹:۰۰ تا ۲۱:۰۰</li>
+                    <h3>کار عالی</h3>
+                    <p>ارائه دهنده تخصصی‌ترین خدمات مراقبت از خودرو با بیش از ۱۰ سال سابقه درخشان و کادری مجرب و متخصص.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>لینک‌های سریع</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">خانه</a></li>
+                        <li><a href="#explanation">توضیحات خدمات</a></li>
+                        <li><a href="#services">خدمات</a></li>
+                        <li><a href="#process">فرآیند کار</a></li>
+                        <li><a href="#contact">تماس با ما</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>خدمات</h3>
+                    <ul class="footer-links">
+                        <li><a href="#explanation">لیسه‌گیری حرفه‌ای</a></li>
+                        <li><a href="#explanation">ریکاوری رنگ</a></li>
+                        <li><a href="#explanation">کاور سرامیک</a></li>
+                        <li><a href="#explanation">محافظ فیلم شفاف</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>© 1404 کلیه حقوق برای کار عالی (Caraali) محفوظ است</p>
+                <p>© ۱۴۰۳ کلیه حقوق برای مجموعه کار عالی (Caraali) محفوظ است.</p>
             </div>
         </div>
     </footer>
     
     <script>
-        // لودر
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1500);
-        });
-        
         // منوی موبایل
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1149,26 +1363,45 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
+                    
+                    // بستن منوی موبایل
                     mobileMenu.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    // آپدیت لینک فعال
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
                 }
             });
         });
         
-        // نوار پیشرفت اسکرول
+        // دکمه بازگشت به بالا
+        const backToTop = document.getElementById('backToTop');
+        
         window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
         
         // شمارنده آمار
-        const counters = document.querySelectorAll('.stat-number');
-        const speed = 100;
+        const counters = document.querySelectorAll('.stat-number-large');
+        const speed = 200;
         
         const startCounter = () => {
             counters.forEach(counter => {
@@ -1188,8 +1421,8 @@
             });
         };
         
-        // مشاهده شدن بخش آمار
-        const statsSection = document.getElementById('stats');
+        // فعال کردن شمارنده وقتی بخش آمار دیده شد
+        const statsSection = document.querySelector('.stats');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1201,118 +1434,28 @@
         
         if (statsSection) observer.observe(statsSection);
         
-        // افکت تایپ کردن
-        const text = "ما بهترین خدمات لیسه‌گیری، ریکاوری رنگ، کاور سرامیک و PPF را با گارانتی ۳ ساله ارائه می‌دهیم...";
-        let i = 0;
-        const typingText = document.getElementById('typingText');
+        // فرم تماس
+        const contactForm = document.getElementById('contactForm');
         
-        function typeWriter() {
-            if (i < text.length) {
-                typingText.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            } else {
-                setTimeout(() => {
-                    typingText.innerHTML = '';
-                    i = 0;
-                    typeWriter();
-                }, 3000);
-            }
-        }
-        
-        typeWriter();
-        
-        // ایجاد ذرات
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 100;
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                const size = Math.random() * 5 + 1;
-                const posX = Math.random() * 100;
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * 5;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}vw`;
-                particle.style.animationDuration = `${duration}s`;
-                particle.style.animationDelay = `${delay}s`;
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
-        createParticles();
-        
-        // سوئیچ حالت‌ها
-        document.getElementById('nightMode').addEventListener('click', () => {
-            document.body.classList.toggle('night-mode');
-        });
-        
-        document.getElementById('matrixMode').addEventListener('click', () => {
-            document.body.style.background = '#000';
-            document.body.style.color = '#0f0';
-            document.querySelectorAll('h1, h2, h3').forEach(el => {
-                el.style.color = '#0f0';
-                el.style.textShadow = '0 0 10px #0f0';
-            });
-        });
-        
-        document.getElementById('rgbMode').addEventListener('click', () => {
-            let hue = 0;
-            setInterval(() => {
-                document.documentElement.style.setProperty('--primary-red', `hsl(${hue}, 100%, 50%)`);
-                hue = (hue + 1) % 360;
-            }, 50);
-        });
-        
-        // چت بات
-        document.getElementById('chatBtn').addEventListener('click', () => {
-            alert('سلام! من ربات کار عالی هستم.\nچگونه می‌توانم کمک کنم؟\n\n۱. دریافت مشاوره\n۲. تعیین نوبت\n۳. استعلام قیمت\n۴. پشتیبانی');
-        });
-        
-        // اعلان
-        setTimeout(() => {
-            document.getElementById('notification').classList.add('show');
-            setTimeout(() => {
-                document.getElementById('notification').classList.remove('show');
-            }, 5000);
-        }, 3000);
-        
-        // افکت هور بر روی کارت‌ها
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateY = ((x - centerX) / centerX) * 5;
-                const rotateX = ((centerY - y) / centerY) * 5;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-            });
+            // گرفتن مقادیر فرم
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const carModel = document.getElementById('carModel').value;
+            const service = document.getElementById('service').value;
             
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-            });
+            // در واقعیت اینجا داده‌ها به سرور ارسال می‌شود
+            // برای دمو فقط یک پیام نشان می‌دهیم
+            alert(`درخواست شما با موفقیت ثبت شد!\n\nنام: ${name}\nشماره تماس: ${phone}\nمدل خودرو: ${carModel}\nخدمت مورد نظر: ${service}\n\nکارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.`);
+            
+            // ریست کردن فرم
+            contactForm.reset();
         });
-        
-        // افکت شکست نور روی هدر
-        const header = document.querySelector('header');
-        const lightBreak = document.createElement('div');
-        lightBreak.classList.add('light-break');
-        header.appendChild(lightBreak);
         
         // انیمیشن اسکرول
-        const fadeElements = document.querySelectorAll('.service-card, .stat-item');
+        const fadeElements = document.querySelectorAll('.fade-in');
         
         const fadeInOnScroll = () => {
             fadeElements.forEach(element => {
@@ -1326,7 +1469,7 @@
             });
         };
         
-        // تنظیم اولیه
+        // تنظیم اولیه برای عناصر fade-in
         fadeElements.forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
@@ -1336,19 +1479,56 @@
         window.addEventListener('scroll', fadeInOnScroll);
         fadeInOnScroll(); // اجرای اولیه
         
-        // موسیقی پس‌زمینه (اختیاری)
-        const playSound = () => {
-            // برای سایت واقعی می‌توانید موسیقی اضافه کنید
-            console.log('Sound ready to play');
-        };
-        
-        // تشخیص دکمه‌های کیبورد برای افکت‌های مخفی
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.key === 'k') {
-                document.body.classList.toggle('night-mode');
-            }
+        // فعال کردن لینک‌های منو بر اساس اسکرول
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
         });
+        
+        // هور افکت روی کارت‌های توضیحات
+        document.querySelectorAll('.explanation-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-15px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // تغییر عکس هیرو بر اساس زمان
+        const heroImages = [
+            'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+            'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'
+        ];
+        
+        let currentImageIndex = 0;
+        const heroSection = document.querySelector('.hero');
+        
+        function changeHeroImage() {
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('${heroImages[currentImageIndex]}')`;
+        }
+        
+        // تغییر خودکار عکس هر ۱۰ ثانیه
+        setInterval(changeHeroImage, 10000);
     </script>
 </body>
 </html>
-
